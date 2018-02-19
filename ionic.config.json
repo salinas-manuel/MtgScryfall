@@ -1,6 +1,6 @@
 {
   "name": "MtgScryfall",
-  "app_id": "",
+  "app_id": "996f865b",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

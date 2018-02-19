@@ -1,0 +1,17 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Search</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content *ngIf="card">
+  <ion-item>
+      <ion-label floating>Search a Card</ion-label>
+      <ion-input [(ngModel)]="searchedCard"></ion-input>
+  </ion-item>
+  <button ion-button type="submit">Search</button>
+</ion-content>
