@@ -10,7 +10,8 @@ import { Cards } from '../../models/cards';
 })
 export class CardSearchPage {
 
-  card: Cards;
+  //cards: Cards;
+  public cards: Cards[];
   public searchedCard: string = '';
 
   constructor(
@@ -22,17 +23,18 @@ export class CardSearchPage {
   ionViewDidLoad() {
     
   }
-// Find out how to have string of card name be submitted and searched.
-  searchCard(name){
-    this.cardsProvider.searchCard(name).subscribe(
-      (response) => {
+
+  searchCard(){
+    this.cardsProvider.searchCard(this.searchedCard).subscribe(
+      (response:any) => {
         console.log(response);
-        this.card = response;
+        this.cards = response.data;
+        // parse the response into array  
       }
     )
   }
 
-  response(response): void{
+/* response(response): void{
     console.log(response)
     if(response.success===true){
 
@@ -45,6 +47,6 @@ export class CardSearchPage {
         this.response(response)
       }
     )
-  }
+  } */
 
 }

@@ -16,8 +16,8 @@ export class CardsProvider {
     return this.http.get<Cards>(this.url + `/cards/named?fuzzy=Black+Lotus`);
   }
 
-  public searchCard(name: string): Observable<Cards> {
-    return this.http.get<Cards>(this.url + `/cards/search?q=${name}`);
+  public searchCard(searchedCard: string): Observable<Cards> {
+    return this.http.get<Cards>(this.url + `/cards/search?q=${searchedCard}`);
   }
 
 }

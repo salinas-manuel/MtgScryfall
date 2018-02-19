@@ -8,10 +8,19 @@
 </ion-header>
 
 
-<ion-content *ngIf="card">
-  <ion-item>
-      <ion-label floating>Search a Card</ion-label>
-      <ion-input [(ngModel)]="searchedCard"></ion-input>
-  </ion-item>
-  <button ion-button type="submit">Search</button>
+<ion-content>
+  <form (ngSubmit)="searchCard()">
+    <ion-item>
+        <ion-label></ion-label>
+        <ion-input [(ngModel)]="searchedCard" [ngModelOptions]="{standalone: true}"></ion-input>
+    </ion-item>
+    <button ion-button type="submit">Search</button>
+  </form>
+
+  <ion-card *ngIf="cards">
+    <img *ngFor="let card of cards" src="{{card.image_uris.small}}" />
+       
+  </ion-card>
+
+
 </ion-content>

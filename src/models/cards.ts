@@ -1,7 +1,7 @@
 export class Cards {
-    // cards: any;
-    // name: ;
-    // card: any;
-    // artist: string;
+     cards: any;
+     name: any;
+     card: any;
+     artist: any;
 }
   

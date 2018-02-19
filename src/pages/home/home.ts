@@ -12,7 +12,7 @@ import { Platform } from 'ionic-angular';
 })
 export class HomePage {
 
-  public card: Cards;
+  card: Cards;
 
   constructor(
     public navCtrl: NavController,
