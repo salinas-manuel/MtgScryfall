@@ -14,7 +14,11 @@
         <ion-label floating>Search for a Card</ion-label>
         <ion-input [(ngModel)]="searchedCard" [ngModelOptions]="{standalone: true}"></ion-input>
     </ion-item>
-    <button ion-button type="submit">Search</button>
+    <ion-row>
+      <ion-col style="text-align: left">
+        <button ion-button center type="submit">Search</button>
+      </ion-col>
+    </ion-row>
   </form>
 
   <ion-card *ngIf="cards">
