@@ -13,7 +13,7 @@ import { CardSearchPage } from '../pages/card-search/card-search';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = CardSearchPage;
 
   pages: Array<{title: string, component: any}>;
 

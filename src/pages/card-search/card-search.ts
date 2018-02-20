@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CardsProvider } from '../../providers/cards/cards';
 import { Cards } from '../../models/cards';
+import { CardViewPage } from '../card-view/card-view';
 
 @IonicPage()
 @Component({
@@ -13,40 +14,32 @@ export class CardSearchPage {
   //cards: Cards;
   public cards: Cards[];
   public searchedCard: string = '';
+  //public selectedCard: any[];
+  pushpage: any;
+  
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private cardsProvider: CardsProvider
-  ){}
+  ){
+    this.pushpage = CardViewPage;
+  }
 
   ionViewDidLoad() {
     
   }
 
-  searchCard(){
+  public searchCard(){
     this.cardsProvider.searchCard(this.searchedCard).subscribe(
       (response:any) => {
         console.log(response);
         this.cards = response.data;
-        // parse the response into array  
       }
     )
   }
 
-/* response(response): void{
-    console.log(response)
-    if(response.success===true){
-
-    }
+  tapEvent(card){
+    this.navCtrl.push(CardViewPage, card.name);
   }
-
-  onSubmit(): void{
-    this.cardsProvider.searchCard(name).subscribe(
-      (response) => {
-        this.response(response)
-      }
-    )
-  } */
-
 }

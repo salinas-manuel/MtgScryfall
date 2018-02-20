@@ -11,15 +11,14 @@
 <ion-content>
   <form (ngSubmit)="searchCard()">
     <ion-item>
-        <ion-label></ion-label>
+        <ion-label floating>Search for a Card</ion-label>
         <ion-input [(ngModel)]="searchedCard" [ngModelOptions]="{standalone: true}"></ion-input>
     </ion-item>
     <button ion-button type="submit">Search</button>
   </form>
 
   <ion-card *ngIf="cards">
-    <img *ngFor="let card of cards" src="{{card.image_uris.normal}}" />
-       
+    <img *ngFor="let card of cards" src="{{card.image_uris.normal}}" (tap)="tapEvent(card)"/>       
   </ion-card>
 
 

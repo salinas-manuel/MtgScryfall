@@ -21,20 +21,20 @@ export class HomePage {
     public plt: Platform
     
   ){
-    this.plt.ready().then((readySource) => {
-      console.log('Platform ready from', readySource);
-      console.log(this.screenOrientation.type);
-        if (this.plt.is('android')){
-          console.log("This is Android");
-          //this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
-        }
-    });
+    //this.plt.ready().then((readySource) => {
+      // console.log('Platform ready from', readySource);
+      // console.log(this.screenOrientation.type);
+      //   if (this.plt.is('android')){
+      //     console.log("This is Android");
+      //     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+      //  }
+      //});
   }
 
   public ionViewDidLoad() {
     //this.screenOrientation.lock('portrait');
     
-    this.getCard();
+    //this.getCard();
     //this.screenLock();
   }
 
@@ -44,13 +44,13 @@ export class HomePage {
     }
   }*/
   
-  public getCard(){
-    this.cardsProvider.getCard().subscribe(
-      (response) => {
-        console.log(response);
-        this.card = response;
+  // public getCard(){
+  //   this.cardsProvider.getCard(name).subscribe(
+  //     (response) => {
+  //       console.log(response);
+  //       this.card = response;
  
-      }
-    )
-  }
+  //     }
+  //   )
+  // }
 }

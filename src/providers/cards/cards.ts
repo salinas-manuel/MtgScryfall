@@ -12,8 +12,8 @@ export class CardsProvider {
   constructor(public http: HttpClient) {}
 
   // GET /cards/name
-  public getCard(): Observable<Cards> {
-    return this.http.get<Cards>(this.url + `/cards/named?fuzzy=Black+Lotus`);
+  public getCard(clickedCard: string): Observable<Cards> {
+    return this.http.get<Cards>(this.url + `/cards/named?fuzzy=${clickedCard}`);
   }
 
   public searchCard(searchedCard: string): Observable<Cards> {
