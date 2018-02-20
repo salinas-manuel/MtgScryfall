@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>card-view</ion-title>
+    <ion-title>Card View</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -11,13 +11,22 @@
     
     <img src="{{card.image_uris.large}}"/>
     <ion-card-content>
-      <ion-card-title>
-        {{card.name}} 
-      </ion-card-title>
-      <ion-card-header> {{type_line}} </ion-card-header>
-      <p> {{card.oracle_text}} </p>
       <hr>
+      <ion-card-title class="bold">
+        {{card.name}} {{card.mana_cost}}
+      </ion-card-title>
+      <hr>
+      <p> {{card.type_line}} </p>
+      <hr>
+      <p> {{card.oracle_text}} </p>
       <i> {{card.flavor_text}} </i>
+      <hr>
+      <i class="artist"> Illustrated by: {{card.artist}}</i>
     </ion-card-content>
   </ion-card>
+  <!--<ion-card *ngIf="card">
+    <ion-card-content>
+      <p>{{card.legalities."1v1"}}</p>
+    </ion-card-content>
+  </ion-card>-->
 </ion-content>
