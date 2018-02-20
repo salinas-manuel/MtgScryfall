@@ -1,0 +1,20 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>card-view</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+ <ion-content>
+  <ion-card *ngIf = "card">
+    
+    <img src="{{card.image_uris.large}}"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{card.name}} 
+      </ion-card-title>
+      <p> {{card.oracle_text}} </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -12,7 +12,7 @@ export class CardsProvider {
   constructor(public http: HttpClient) {}
 
   // GET /cards/name
-  public getCard(clickedCard: string): Observable<Cards> {
+  public getCard(clickedCard: string): Observable<Cards> { 
     return this.http.get<Cards>(this.url + `/cards/named?fuzzy=${clickedCard}`);
   }
 
