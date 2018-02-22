@@ -15,14 +15,14 @@
     </ion-card-content>
   </ion-card>
   
+  <!-- wrap images with div to display them 2 in a row instead of 1 -->
   <ion-card *ngIf="cards">
       <span *ngFor="let card of cards">
         <span *ngIf="card.layout == 'normal'; else elseBlock">
-          <img class="single" src="{{card.image_uris.normal}}">
-
+          <img class="single" src="{{card.image_uris.normal}}" (tap)="tapEvent(card)">
           <ng-template #elseBlock>
-            <img src="{{card.card_faces[0].image_uris.normal}}">
-            <img src="{{card.card_faces[1].image_uris.normal}}">
+            <img class="single" src="{{card.card_faces[0].image_uris.normal}}" (tap)="tapEvent(card)">
+            <img class="single" src="{{card.card_faces[1].image_uris.normal}}" (tap)="tapEvent(card)">
           </ng-template>
         </span>
       </span>
