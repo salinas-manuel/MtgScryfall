@@ -2,8 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { ListPage } from '../pages/list/list';
 import { CardSearchPage } from '../pages/card-search/card-search';
+import { CardSetsPage } from '../pages/card-sets/card-sets';
 
 @Component({
   templateUrl: 'app.html'
@@ -21,7 +21,7 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: CardSearchPage },
-      { title: 'List', component: ListPage } 
+      { title: 'Sets', component: CardSetsPage} 
     ];
 
   }

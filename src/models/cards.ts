@@ -3,5 +3,7 @@ export class Cards {
      name: any;
      card: any;
      artist: any;
+     sets: any;
+     set: any;
 }
   

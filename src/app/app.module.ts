@@ -5,9 +5,10 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 import { MyApp } from './app.component';
-import { ListPage } from '../pages/list/list';
 import { CardSearchPage } from '../pages/card-search/card-search';
 import { CardViewPage } from '../pages/card-view/card-view';
+import { CardSetsPage } from '../pages/card-sets/card-sets';
+import { SetViewPage } from '../pages/set-view/set-view';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -16,9 +17,10 @@ import { CardsProvider } from '../providers/cards/cards';
 @NgModule({
   declarations: [
     MyApp,
-    ListPage,
     CardSearchPage,
-    CardViewPage
+    CardViewPage,
+    CardSetsPage,
+    SetViewPage
   ],
   imports: [
     BrowserModule,
@@ -28,9 +30,10 @@ import { CardsProvider } from '../providers/cards/cards';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    ListPage,
     CardSearchPage,
-    CardViewPage
+    CardViewPage,
+    CardSetsPage,
+    SetViewPage
   ],
   providers: [
     StatusBar,

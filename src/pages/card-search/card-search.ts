@@ -11,10 +11,8 @@ import { CardViewPage } from '../card-view/card-view';
 })
 export class CardSearchPage {
 
-  //cards: Cards;
   public cards: Cards[];
   public searchedCard: string = '';
-  //public selectedCard: any[];
   pushpage: any;
   
 
@@ -30,7 +28,9 @@ export class CardSearchPage {
     
   }
 
-  public searchCard(){
+  // passes searchedCard string that user enters through the Provider method.
+  // Scryfall API displays results 
+  searchCard(){
     this.cardsProvider.searchCard(this.searchedCard).subscribe(
       (response:any) => {
         console.log(response);
@@ -39,6 +39,7 @@ export class CardSearchPage {
     )
   }
 
+  // Tap event on card that pushes to the Card View Page, displaying info on selected card
   tapEvent(card){
     this.navCtrl.push(CardViewPage, card.name);
   }

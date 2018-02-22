@@ -20,4 +20,12 @@ export class CardsProvider {
     return this.http.get<Cards>(this.url + `/cards/search?q=${searchedCard}`);
   }
 
+  public getSets(): Observable<Cards> {
+    return this.http.get<Cards>(this.url + `/sets`);
+  }
+
+  public getSet(setCode: string): Observable<Cards> {
+    return this.http.get<Cards>(this.url + `/sets/${setCode}`);
+  }
+
 }
