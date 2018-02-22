@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title *ngIf="set">{{set.name}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-card *ngIf="set">
+    <ion-card-content>
+      <ion-card-header>
+        Release Date: {{set.released_at}}
+      </ion-card-header>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

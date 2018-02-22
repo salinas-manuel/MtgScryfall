@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Sets</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="sets">
+    <div *ngFor="let set of sets">
+      <!-- Exclude set types that are tokens and promos-->
+      <div *ngIf="set.set_type !== 'token' && set.set_type !== 'promo' && set.set_type !== 'memorabilia'">
+        <button class="vertical-align" ion-item (click)="getSet(set)" >
+          <ion-icon>
+            <svg height="50" width="50">
+              <image height="50px" width="50px" 
+               attr.xlink:href="{{set.icon_svg_uri}}"/>
+            </svg>
+          </ion-icon>
+          {{ set.name }}
+        </button> 
+     </div>
+    </div>
+  </ion-list>
+</ion-content>
