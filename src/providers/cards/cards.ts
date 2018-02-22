@@ -28,4 +28,8 @@ export class CardsProvider {
     return this.http.get<Cards>(this.url + `/sets/${setCode}`);
   }
 
+  public getCards(setCode: string): Observable<Cards> {
+    return this.http.get<Cards>(this.url + `/cards/search?order=set&q=%2B%2Be%3A${setCode}`);
+  }
+
 }

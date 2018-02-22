@@ -25,7 +25,7 @@
   </form>
 
   <ion-card *ngIf="cards">
-    <img *ngFor="let card of cards" src="{{card.image_uris.normal}}" (tap)="tapEvent(card)"/>       
+    <img class="single" *ngFor="let card of cards" src="{{card.image_uris.normal}}" (tap)="tapEvent(card)"/>
   </ion-card>
 
 

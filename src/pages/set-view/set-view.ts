@@ -11,6 +11,7 @@ import { Cards } from '../../models/cards';
 export class SetViewPage {
 
   set: Cards;
+  cards: Cards[];
 
   constructor(
     public navCtrl: NavController,
@@ -22,6 +23,7 @@ export class SetViewPage {
     const clickedSet = this.navParams.data;
     console.log(clickedSet);
     this.getSet(clickedSet);
+    this.setCards(clickedSet);
   }
 
   getSet(clickedSet){
@@ -29,6 +31,15 @@ export class SetViewPage {
       (response) => {
         console.log(response)
         this.set = response
+      }
+    )
+  }
+
+  setCards(setCode){
+    this.cardsProvider.getCards(setCode).subscribe(
+      (response:any) => {
+        console.log(response)
+        this.cards = response.data
       }
     )
   }

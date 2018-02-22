@@ -1,6 +1,8 @@
 <ion-header>
   <ion-navbar>
-    <ion-title *ngIf="set">{{set.name}}</ion-title>
+    <ion-title *ngIf="set">{{set.name}} 
+      <span class="uppercase">({{set.code}})</span>
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -8,9 +10,22 @@
 <ion-content>
   <ion-card *ngIf="set">
     <ion-card-content>
-      <ion-card-header>
-        Release Date: {{set.released_at}}
-      </ion-card-header>
+      <p> Release Date: {{set.released_at}}</p>
+      <p> {{set.card_count}} Cards </p>
     </ion-card-content>
   </ion-card>
+  
+  <ion-card *ngIf="cards">
+      <span *ngFor="let card of cards">
+        <span *ngIf="card.layout == 'normal'; else elseBlock">
+          <img class="single" src="{{card.image_uris.normal}}">
+
+          <ng-template #elseBlock>
+            <img src="{{card.card_faces[0].image_uris.normal}}">
+            <img src="{{card.card_faces[1].image_uris.normal}}">
+          </ng-template>
+        </span>
+      </span>
+  </ion-card>
+
 </ion-content>
