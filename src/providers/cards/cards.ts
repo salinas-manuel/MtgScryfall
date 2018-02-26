@@ -32,4 +32,8 @@ export class CardsProvider {
     return this.http.get<Cards>(this.url + `/cards/search?order=set&q=%2B%2Be%3A${setCode}`);
   }
 
+  public nextPage(nextUrl: string): Observable<Cards> {
+    return this.http.get<Cards>(this.url + `/cards/search?format=json&include_extras=false&order=set&page=2&q=%2B%2Be%3A${nextUrl}&unique=prints`);
+  }
+
 }

@@ -12,10 +12,15 @@
     <ion-card-content>
       <p> Release Date: {{set.released_at}}</p>
       <p> {{set.card_count}} Cards </p>
+      <div *ngIf="next">
+        <div *ngIf="next.has_more == true">
+          <button ion-button (click)="clickMore(setCode)">Load More</button> 
+        </div>
+      </div>
     </ion-card-content>
   </ion-card>
-  
-  <!-- wrap images with div to display them 2 in a row instead of 1 -->
+  <!-- To do: show the rest of the cards in a set -->
+  <!-- To do: wrap images with div to display them 2 in a row instead of 1 -->
   <ion-card *ngIf="cards">
       <span *ngFor="let card of cards">
         <span *ngIf="card.layout == 'normal'; else elseBlock">

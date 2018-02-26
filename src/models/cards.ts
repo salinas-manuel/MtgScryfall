@@ -5,5 +5,6 @@ export class Cards {
      artist: any;
      sets: any;
      set: any;
+     
 }
   
