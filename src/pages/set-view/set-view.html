@@ -12,25 +12,37 @@
     <ion-card-content>
       <p> Release Date: {{set.released_at}}</p>
       <p> {{set.card_count}} Cards </p>
-      <div *ngIf="next">
-        <div *ngIf="next.has_more == true">
-          <button ion-button (click)="clickMore(setCode)">Load More</button> 
-        </div>
-      </div>
     </ion-card-content>
   </ion-card>
-  <!-- To do: show the rest of the cards in a set -->
+
   <!-- To do: wrap images with div to display them 2 in a row instead of 1 -->
-  <ion-card *ngIf="cards">
+  <ion-card>
+    <span *ngIf="cards">
       <span *ngFor="let card of cards">
-        <span *ngIf="card.layout == 'normal'; else elseBlock">
+        <span *ngIf="card.layout == 'normal'">
           <img class="single" src="{{card.image_uris.normal}}" (tap)="tapEvent(card)">
-          <ng-template #elseBlock>
+        </span>  
+        <span *ngIf="card.layout == 'transform'">
+          <img class="single" src="{{card.card_faces[0].image_uris.normal}}" (tap)="tapEvent(card)">
+          <img class="single" src="{{card.card_faces[1].image_uris.normal}}" (tap)="tapEvent(card)">
+        </span>
+        </span>
+      </span> 
+  
+
+    <span *ngIf="code">
+      <span *ngIf="code.has_more == true">
+        <span *ngFor="let card of next.data">
+          <span *ngIf="card.layout == 'normal'">
+            <img class="single" src="{{card.image_uris.normal}}" (tap)="tapEvent(card)">
+          </span>  
+          <span *ngIf="card.layout == 'transform'">
             <img class="single" src="{{card.card_faces[0].image_uris.normal}}" (tap)="tapEvent(card)">
             <img class="single" src="{{card.card_faces[1].image_uris.normal}}" (tap)="tapEvent(card)">
-          </ng-template>
+          </span>
         </span>
       </span>
+    </span>
   </ion-card>
 
 </ion-content>

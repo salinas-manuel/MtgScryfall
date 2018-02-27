@@ -15,6 +15,7 @@ export class SetViewPage {
   cards: Cards[];
   pushpage: any;
   next: Cards[];
+  code: Cards[];
 
   constructor(
     public navCtrl: NavController,
@@ -30,7 +31,7 @@ export class SetViewPage {
     this.getSet(clickedSet);
     this.setCards(clickedSet);
     this.setCards2(clickedSet);
-    this.clickMore(clickedSet);
+    this.nextPage(clickedSet);
   }
 
   // Takes clicked set code to display information about selected Set (date released, etc)
@@ -57,14 +58,14 @@ export class SetViewPage {
   setCards2(setCode){
     this.cardsProvider.getCards(setCode).subscribe(
       (response:any) => {
-        this.next = response
+        this.code = response
       }
     )
   }
 
-  // No clue
-  clickMore(setCode){
-    this.cardsProvider.nextPage(setCode).subscribe(
+  // Access second page
+  nextPage(nextUrl){
+    this.cardsProvider.nextPage(nextUrl).subscribe(
       (response:any) => {
         console.log(response)
         this.next = response
