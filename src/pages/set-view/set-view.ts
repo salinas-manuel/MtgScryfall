@@ -63,7 +63,7 @@ export class SetViewPage {
     )
   }
 
-  // Access second page
+  // Access second page of Sets
   nextPage(nextUrl){
     this.cardsProvider.nextPage(nextUrl).subscribe(
       (response:any) => {

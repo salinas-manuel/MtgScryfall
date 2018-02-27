@@ -1,12 +1,12 @@
 
 <ion-header>
-    <ion-navbar>
-      <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-      <ion-title>Home</ion-title>
-    </ion-navbar>
-  </ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
 
 
 
@@ -24,9 +24,24 @@
     </ion-row>
   </form>
 
-  <ion-card *ngIf="cards">
-    <img class="single" *ngFor="let card of cards" src="{{card.image_uris.normal}}" (tap)="tapEvent(card)"/>
+  <ion-card>
+    <span *ngIf="cards">
+      <span *ngFor="let card of cards">
+
+        <span *ngIf="card.layout == 'normal'">
+         <img class="single" src="{{card.image_uris.normal}}" (tap)="tapEvent(card)">
+        </span>
+
+        <span *ngIf="card.layout == 'transform'">
+          <img class="single" src="{{card.card_faces[0].image_uris.normal}}" (tap)="tapEvent(card)">
+          <img class="single" src="{{card.card_faces[1].image_uris.normal}}" (tap)="tapEvent(card)">
+        </span>
+        
+      </span>
+    </span>
   </ion-card>
+
+
 
 
 </ion-content>

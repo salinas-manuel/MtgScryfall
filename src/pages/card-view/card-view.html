@@ -7,21 +7,56 @@
 </ion-header>
 
  <ion-content>
-  <ion-card *ngIf = "card">
-    
-    <img class="single" src="{{card.image_uris.large}}"/>
+  <ion-card>
+    <span *ngIf = "card">
+      <span *ngIf="card.layout == 'normal'">
+        <img class="single" src="{{card.image_uris.normal}}">
+      </span>  
+      <span *ngIf="card.layout == 'transform'">
+        <img class="single" src="{{card.card_faces[0].image_uris.normal}}">
+        <img class="single" src="{{card.card_faces[1].image_uris.normal}}">
+      </span>
+    </span>
+    <!-- <img class="single" src="{{card.image_uris.normal}}"/> -->
     <ion-card-content>
-      <hr>
-      <ion-card-title class="bold">
-        {{card.name}} {{card.mana_cost}}
-      </ion-card-title>
-      <hr>
-      <p> {{card.type_line}} </p>
-      <hr>
-      <p> {{card.oracle_text}} </p>
-      <i> {{card.flavor_text}} </i>
-      <hr>
-      <i class="artist"> Illustrated by: {{card.artist}}</i>
+      <span *ngIf="card">
+        <span *ngIf="card.layout == 'normal'">
+          <hr>
+          <ion-card-title class="bold">
+            {{card.name}} {{card.mana_cost}}
+          </ion-card-title>
+          <hr>
+          <p> {{card.type_line}} </p>
+          <hr>
+          <p> {{card.oracle_text}} </p>
+          <i> {{card.flavor_text}} </i>
+          <hr>
+          <i class="artist"> Illustrated by: {{card.artist}}</i>
+        </span>
+        <span *ngIf="card.layout == 'transform'">
+          <hr>
+          <ion-card-title class="bold">
+            {{card.card_faces[0].name}} {{card.card_faces[0].mana_cost}}
+          </ion-card-title>
+          <hr>
+          <p> {{card.card_faces[0].type_line}} </p>
+          <hr>
+          <p> {{card.card_faces[0].oracle_text}} </p>
+          <i> {{card.card_faces[0].flavor_text}} </i>
+          <hr>
+          <ion-card-title class="bold">
+              {{card.card_faces[1].name}} {{card.card_faces[1].mana_cost}}
+            </ion-card-title>
+            <hr>
+            <p> {{card.card_faces[1].type_line}} </p>
+            <hr>
+            <p> {{card.card_faces[1].oracle_text}} </p>
+            <i> {{card.card_faces[1].flavor_text}} </i>
+            <hr>
+          <i class="artist"> Illustrated by: {{card.artist}}</i>
+        </span>
+
+      </span>
     </ion-card-content>
   </ion-card>
 </ion-content>

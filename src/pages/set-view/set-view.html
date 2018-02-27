@@ -15,34 +15,41 @@
     </ion-card-content>
   </ion-card>
 
-  <!-- To do: wrap images with div to display them 2 in a row instead of 1 -->
+  <!-- To do: wrap images with div to display them 2 in a row instead of 1. Flexbox? -->
   <ion-card>
+    
     <span *ngIf="cards">
       <span *ngFor="let card of cards">
-        <span *ngIf="card.layout == 'normal'">
-          <img class="single" src="{{card.image_uris.normal}}" (tap)="tapEvent(card)">
-        </span>  
-        <span *ngIf="card.layout == 'transform'">
-          <img class="single" src="{{card.card_faces[0].image_uris.normal}}" (tap)="tapEvent(card)">
-          <img class="single" src="{{card.card_faces[1].image_uris.normal}}" (tap)="tapEvent(card)">
-        </span>
-        </span>
-      </span> 
-  
+          
+          <span *ngIf="card.layout == 'normal'">   
+              <img class="multiple" src="{{card.image_uris.normal}}" (tap)="tapEvent(card)">
+          </span> 
+         
 
+          <span *ngIf="card.layout == 'transform'">
+            <img class="multiple" src="{{card.card_faces[0].image_uris.normal}}" (tap)="tapEvent(card)">
+            <img class="multiple" src="{{card.card_faces[1].image_uris.normal}}" (tap)="tapEvent(card)">
+          </span>
+        
+      </span>
+    </span> 
+  
     <span *ngIf="code">
       <span *ngIf="code.has_more == true">
         <span *ngFor="let card of next.data">
+
           <span *ngIf="card.layout == 'normal'">
-            <img class="single" src="{{card.image_uris.normal}}" (tap)="tapEvent(card)">
+            <img class="multiple" src="{{card.image_uris.normal}}" (tap)="tapEvent(card)">
           </span>  
+
           <span *ngIf="card.layout == 'transform'">
-            <img class="single" src="{{card.card_faces[0].image_uris.normal}}" (tap)="tapEvent(card)">
-            <img class="single" src="{{card.card_faces[1].image_uris.normal}}" (tap)="tapEvent(card)">
+            <img class="multiple" src="{{card.card_faces[0].image_uris.normal}}" (tap)="tapEvent(card)">
+            <img class="multiple" src="{{card.card_faces[1].image_uris.normal}}" (tap)="tapEvent(card)">
+
           </span>
         </span>
       </span>
     </span>
-  </ion-card>
 
+  </ion-card>
 </ion-content>
